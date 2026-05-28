@@ -71,30 +71,33 @@
             text-align: center;
         }
 
-        .about h2 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #1A1A1A;
-            margin-bottom: 16px;
-        }
-
         .about p {
             font-size: 0.95rem;
             color: #1A1A1A;
             opacity: 0.75;
             line-height: 1.75;
-            margin-bottom: 12px;
+            margin-bottom: 24px;
             overflow-wrap: break-word;
             word-break: normal;
             hyphens: none;
         }
 
-        .about p:last-child {
-            margin-bottom: 0;
+        .screenshots {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .screenshots img {
+            height: 280px;
+            width: auto;
+            border-radius: 16px;
         }
 
         @media (max-width: 600px) {
             .about { padding: 28px 24px; }
+            .screenshots img { height: 180px; }
         }
 
         footer {
@@ -123,11 +126,15 @@
         </a>
     </div>
     <div class="about">
-        <h2>About Cats Countdown</h2>
         <p>A cute cat countdown app &amp; widget to track your birthdays, vacations &amp; events!</p>
-        <p>Looking for a beautiful, cozy way to track your upcoming events? Meet Cats Countdown—the ultimate event timer and days until the counter that brings a smile to your face every time you check the clock!</p>
-        <p>Whether you need a vacation countdown, a wedding tracker, a birthday reminder, or a simple tool to count down the days until Christmas, our hand-illustrated feline friends are here to help you celebrate. Every countdown card comes to life with unique cat artwork and warm, aesthetic color themes.</p>
-        <p>The app is built with love by a small independent family (two humans, two cats and a dog).</p>
+        <div class="screenshots">
+            <img src="001.png" alt="Screenshot 1">
+            <img src="002.png" alt="Screenshot 2">
+            <img src="003.png" alt="Screenshot 3">
+            <img src="004.png" alt="Screenshot 4">
+            <img src="005.png" alt="Screenshot 5">
+            <img src="006.png" alt="Screenshot 6">
+        </div>
     </div>
     <footer>
         <a href="/privacy-policy">Privacy Policy</a>
