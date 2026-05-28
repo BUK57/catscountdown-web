@@ -27,26 +27,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            padding: 40px 40px 80px;
-        }
-
-        .layout {
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            justify-content: center;
-            gap: 48px;
-            width: 100%;
-            max-width: 1000px;
+            padding: 60px 20px 80px;
         }
 
         .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
-            flex-shrink: 0;
+            margin-bottom: 40px;
         }
 
         .icon {
@@ -65,6 +54,10 @@
             text-align: center;
         }
 
+        @media (max-width: 600px) {
+            h1 { font-size: 1.4rem; }
+        }
+
         .badge img {
             height: 72px;
         }
@@ -72,8 +65,10 @@
         .about {
             background-color: #FDF8F1;
             border-radius: 24px;
+            max-width: 560px;
+            width: 100%;
             padding: 36px 40px;
-            max-width: 480px;
+            text-align: center;
         }
 
         .about h2 {
@@ -95,6 +90,10 @@
             margin-bottom: 0;
         }
 
+        @media (max-width: 600px) {
+            .about { padding: 28px 24px; }
+        }
+
         footer {
             position: fixed;
             bottom: 16px;
@@ -110,43 +109,22 @@
         footer a:hover {
             opacity: 0.8;
         }
-
-        @media (max-width: 700px) {
-            body {
-                padding: 40px 20px 80px;
-                justify-content: flex-start;
-            }
-
-            .layout {
-                flex-direction: column;
-                gap: 32px;
-            }
-
-            h1 { font-size: 1.4rem; }
-
-            .about {
-                padding: 28px 24px;
-                max-width: 100%;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="layout">
-        <div class="hero">
-            <img src="app_icon.webp" alt="Cats Countdown" class="icon">
-            <h1>Cats Countdown: Days Counter</h1>
-            <a class="badge" href="https://play.google.com/store/apps/details?id=com.catscountdown.app" target="_blank">
-                <img src="PreRegisterOnGooglePlay_Badge_Web_color_english.png.png" alt="Pre-register on Google Play">
-            </a>
-        </div>
-        <div class="about">
-            <h2>About Cats Countdown</h2>
-            <p>A cute cat countdown app &amp; widget to track your birthdays, vacations &amp; events!</p>
-            <p>Looking for a beautiful, cozy way to track your upcoming events? Meet Cats Countdown—the ultimate event timer and days until the counter that brings a smile to your face every time you check the clock!</p>
-            <p>Whether you need a vacation countdown, a wedding tracker, a birthday reminder, or a simple tool to count down the days until Christmas, our hand-illustrated feline friends are here to help you celebrate. Every countdown card comes to life with unique cat artwork and warm, aesthetic color themes.</p>
-            <p>The app is built with love by a small independent family (two humans, two cats and a dog).</p>
-        </div>
+    <div class="hero">
+        <img src="app_icon.webp" alt="Cats Countdown" class="icon">
+        <h1>Cats Countdown: Days Counter</h1>
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.catscountdown.app" target="_blank">
+            <img src="PreRegisterOnGooglePlay_Badge_Web_color_english.png.png" alt="Pre-register on Google Play">
+        </a>
+    </div>
+    <div class="about">
+        <h2>About Cats Countdown</h2>
+        <p>A cute cat countdown app &amp; widget to track your birthdays, vacations &amp; events!</p>
+        <p>Looking for a beautiful, cozy way to track your upcoming events? Meet Cats Countdown—the ultimate event timer and days until the counter that brings a smile to your face every time you check the clock!</p>
+        <p>Whether you need a vacation countdown, a wedding tracker, a birthday reminder, or a simple tool to count down the days until Christmas, our hand-illustrated feline friends are here to help you celebrate. Every countdown card comes to life with unique cat artwork and warm, aesthetic color themes.</p>
+        <p>The app is built with love by a small independent family (two humans, two cats and a dog).</p>
     </div>
     <footer>
         <a href="/privacy-policy">Privacy Policy</a>
