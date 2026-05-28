@@ -136,6 +136,13 @@
         <img src="006.png" alt="Screenshot 6">
     </div>
     </div>
+    <script>
+        function updateScroll() {
+            document.body.style.overflowY = document.body.scrollHeight <= window.innerHeight ? 'hidden' : '';
+        }
+        updateScroll();
+        window.addEventListener('resize', updateScroll);
+    </script>
     <footer>
         <a href="/privacy-policy">Privacy Policy</a>
         <span style="opacity: 0.3; margin: 0 8px;">·</span>
