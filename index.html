@@ -50,7 +50,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
     <style>
-        /* Layout: cream hero w/ app-accurate card → feature grid → screenshots → navy CTA */
         :root {
             --bg:   #FDF8F1;
             --fg:   #1A1A1A;
@@ -72,9 +71,7 @@
         .hero {
             position: relative;
             display: flex; flex-direction: column; align-items: center; text-align: center;
-            padding-block: 68px 56px;
-            padding-left: max(24px, env(safe-area-inset-left,0px));
-            padding-right: max(24px, env(safe-area-inset-right,0px));
+            padding-top: 52px;
             overflow: hidden;
         }
         .orbs { position: absolute; inset: 0; pointer-events: none; }
@@ -88,17 +85,18 @@
         .hero-top {
             position: relative; z-index: 1;
             display: flex; flex-direction: column; align-items: center;
-            margin-bottom: 36px;
+            padding-left: max(24px, env(safe-area-inset-left,0px));
+            padding-right: max(24px, env(safe-area-inset-right,0px));
+            margin-bottom: 28px;
         }
-        .icon-wrap { position: relative; margin-bottom: 22px; }
+        .icon-wrap { position: relative; margin-bottom: 18px; }
         .icon-wrap img {
-            width: 96px; height: 96px; border-radius: 22px; display: block;
+            width: 88px; height: 88px; border-radius: 20px; display: block;
             box-shadow: 0 16px 44px rgba(47,62,128,.2), 0 4px 12px rgba(0,0,0,.08);
             animation: bob 4s ease-in-out infinite;
         }
         @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
 
-        /* Z's — Sky blue, matching the app */
         .zees { position: absolute; top: -4px; right: -34px; pointer-events: none; }
         .z {
             position: absolute; font-family: var(--font); font-weight: 900;
@@ -116,87 +114,75 @@
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 900;
             letter-spacing: -.5px; line-height: 1.06;
-            margin: 0 0 12px; max-width: 560px; text-wrap: balance;
+            margin: 0 0 10px; max-width: 560px; text-wrap: balance;
         }
         .hero .tag {
             font-size: clamp(.95rem, 2vw, 1.15rem); font-weight: 600; color: var(--soft);
-            margin: 0 0 28px; max-width: 400px; text-wrap: balance;
+            margin: 0 0 24px; max-width: 400px; text-wrap: balance;
         }
         .badge img { height: 52px; transition: transform .25s cubic-bezier(.34,1.56,.64,1); }
         .badge:hover img { transform: scale(1.07); }
         .badge:focus-visible { outline: 3px solid var(--navy); border-radius: 8px; }
 
-        /* ─── APP HERO CARD (faithful replica) ─── */
-        .card-wrap {
-            position: relative; z-index: 1;
-            width: 100%; max-width: 460px; margin: 0 auto;
+        /* ─── STATS STRIP ───────────────────────── */
+        .stats {
+            display: flex; align-items: center; justify-content: center;
+            gap: 10px; margin-top: 18px; flex-wrap: wrap;
         }
-        .app-card {
-            border-radius: 32px; height: 290px; position: relative; overflow: hidden;
-            background: linear-gradient(135deg, #54B4F0 0%, #6FC0F2 100%);
-            box-shadow: 0 14px 30px rgba(84,180,240,.40), 0 4px 10px rgba(0,0,0,.05);
-            cursor: default; transition: transform .12s ease, box-shadow .12s ease; user-select: none;
+        .stat-chip {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: rgba(255,255,255,.7); backdrop-filter: blur(8px);
+            border: 1.5px solid rgba(47,62,128,.10);
+            border-radius: 999px; padding: 8px 16px;
+            font-size: .88rem; font-weight: 700; color: var(--fg);
+            box-shadow: 0 2px 8px rgba(0,0,0,.06);
         }
-        .app-card:active { transform: scale(.98); box-shadow: 0 8px 18px rgba(84,180,240,.30); }
-        .card-steve {
-            position: absolute; right: -13%; bottom: -6%;
-            width: 80%; height: 90%;
-            object-fit: contain; object-position: bottom right; pointer-events: none;
-        }
-        .card-copy {
-            position: absolute; inset: 0; padding: 22px 22px 20px;
-            display: flex; flex-direction: column; max-width: 62%; color: white;
-        }
-        .card-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; opacity: .85; margin-bottom: 5px; }
-        .card-title   { font-size: 23px; font-weight: 800; line-height: 1.15; margin: 0; }
-        .card-bottom  { margin-top: auto; }
-        .card-num     { font-size: 76px; font-weight: 900; line-height: .95; letter-spacing: -2px; }
-        .card-unit    { font-size: 15px; font-weight: 700; opacity: .92; line-height: 1.3; margin-top: 2px; }
-        .card-chip {
-            display: inline-flex; align-items: center; gap: 5px;
-            background: rgba(255,255,255,.92); color: #1A1A1A;
-            border-radius: 12px; padding: 6px 12px;
-            font-size: 11px; font-weight: 800; margin-top: 10px; width: fit-content;
-        }
+        .stat-chip .stat-icon { font-size: 1rem; line-height: 1; }
+        .stat-chip .stat-val  { font-weight: 900; font-size: .95rem; }
+        .stat-chip .stat-lbl  { font-weight: 600; color: var(--soft); font-size: .82rem; }
+        .stat-stars { display: flex; gap: 2px; }
+        .star { color: #FFCD55; font-size: .95rem; line-height: 1; }
 
-        /* ─── MINI CARD ROW (81×115 proportions) ─── */
-        .mini-row {
-            display: flex; gap: 9px; margin-top: 13px;
-            justify-content: center; flex-wrap: nowrap;
+        /* ─── SCREENSHOTS (hero-inline) ─────────── */
+        .shots-outer {
+            position: relative; z-index: 1;
+            width: 100%; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;
         }
-        .mc {
-            width: 72px; height: 103px; border-radius: 12px;
-            display: flex; flex-direction: column; align-items: center;
-            justify-content: flex-start; padding-top: 11px; gap: 2px;
-            box-shadow: 0 2px 6px rgba(0,0,0,.10); cursor: default; user-select: none;
-            transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .25s;
+        .shots-outer::-webkit-scrollbar { display: none; }
+        .shots-track {
+            display: flex; gap: 12px;
+            padding: 8px 40px 36px;
+            width: max-content; margin: 0 auto;
         }
-        .mc:hover { transform: translateY(-5px); box-shadow: 0 10px 22px rgba(0,0,0,.16); }
-        .mc-num { font-size: 25px; font-weight: 900; line-height: 1; }
-        .mc-lbl { font-size: 7.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; opacity: .8; line-height: 1.4; text-align: center; }
+        .shots-track img {
+            height: 340px; width: auto; border-radius: 8px; flex-shrink: 0;
+            box-shadow: 0 6px 22px rgba(0,0,0,.10);
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+        .shots-track img:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.16); }
 
         /* ─── FEATURES ──────────────────────────── */
         .features {
-            padding-block: 88px;
+            padding-block: 56px;
             padding-left: max(24px, env(safe-area-inset-left,0px));
             padding-right: max(24px, env(safe-area-inset-right,0px));
             text-align: center;
         }
         .eyebrow { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase; color: var(--navy); margin-bottom: 10px; }
-        .features h2 { font-size: clamp(1.7rem,3.5vw,2.5rem); font-weight: 900; letter-spacing: -.3px; margin: 0 0 12px; text-wrap: balance; }
-        .features .sub { font-size: 1rem; font-weight: 600; color: var(--soft); max-width: 480px; margin: 0 auto 50px; }
+        .features h2 { font-size: clamp(1.7rem,3.5vw,2.5rem); font-weight: 900; letter-spacing: -.3px; margin: 0 0 10px; text-wrap: balance; }
+        .features .sub { font-size: 1rem; font-weight: 600; color: var(--soft); max-width: 480px; margin: 0 auto 40px; }
 
         .feat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 13px; max-width: 960px; margin: 0 auto; }
 
         .fc {
-            border-radius: 22px; padding: 28px 22px; text-align: left; cursor: default;
+            border-radius: 22px; padding: 26px 20px; text-align: left; cursor: default;
             opacity: 0; transform: translateY(22px);
             transition: opacity .5s, transform .5s cubic-bezier(.34,1.56,.64,1), box-shadow .25s;
         }
         .fc.in { opacity: 1; transform: translateY(0); }
         .fc:hover { transform: translateY(-4px) scale(1.018); box-shadow: 0 14px 36px rgba(0,0,0,.13); }
-        .fc .fi { font-size: 30px; display: block; margin-bottom: 12px; }
-        .fc h3  { font-size: 1.05rem; font-weight: 800; margin: 0 0 7px; line-height: 1.2; }
+        .fc .fi { font-size: 28px; display: block; margin-bottom: 10px; }
+        .fc h3  { font-size: 1.05rem; font-weight: 800; margin: 0 0 6px; line-height: 1.2; }
         .fc p   { font-size: .875rem; font-weight: 600; opacity: .82; line-height: 1.65; margin: 0; }
         .fc-tang  { background: var(--tang);  color: #1A1A1A; }
         .fc-gold  { background: var(--gold);  color: #1A1A1A; }
@@ -204,9 +190,8 @@
         .fc-lilac { background: var(--lilac); color: #fff; }
         .fc-coral { background: var(--coral); color: #fff; }
 
-        /* NapCard — dashed border empty-state style from the app */
         .nap-fc {
-            border-radius: 22px; padding: 28px 22px; text-align: left; cursor: default;
+            border-radius: 22px; padding: 26px 20px; text-align: left; cursor: default;
             background: #FFF1E2; color: #1A1A1A; position: relative; overflow: visible;
             opacity: 0; transform: translateY(22px);
             transition: opacity .5s, transform .5s cubic-bezier(.34,1.56,.64,1);
@@ -215,7 +200,7 @@
         .nap-fc:hover { transform: translateY(-4px) scale(1.018); }
         .nap-fc::before { content: ""; position: absolute; inset: 0; border-radius: 22px; border: 2.5px dashed #F4B98A; pointer-events: none; }
         .nap-eyebrow { font-size: 11px; font-weight: 800; letter-spacing: .8px; text-transform: uppercase; color: #D9843F; margin-bottom: 10px; }
-        .nap-fc h3 { font-size: 1.05rem; font-weight: 800; margin: 0 0 7px; line-height: 1.2; }
+        .nap-fc h3 { font-size: 1.05rem; font-weight: 800; margin: 0 0 6px; line-height: 1.2; }
         .nap-fc p  { font-size: .875rem; font-weight: 600; opacity: .75; line-height: 1.65; margin: 0; }
         .nap-zz { position: absolute; top: 16px; right: 18px; pointer-events: none; }
         .nz { position: absolute; font-family: var(--font); font-weight: 900; color: #54B4F0; opacity: 0; animation: riseZ var(--zd) ease-in-out infinite; }
@@ -223,28 +208,9 @@
         .nz:nth-child(2){font-size:17px;right:10px;--zd:3.7s;animation-delay:.9s}
         .nz:nth-child(3){font-size:22px;right:-8px;--zd:4.1s;animation-delay:1.8s}
 
-        /* ─── SCREENSHOTS ───────────────────────── */
-        .shots { padding-block: 80px; text-align: center; overflow: hidden; }
-        .shots .eyebrow, .shots h2, .shots .ssub {
-            padding-left: max(24px, env(safe-area-inset-left,0px));
-            padding-right: max(24px, env(safe-area-inset-right,0px));
-            display: block;
-        }
-        .shots h2  { font-size: clamp(1.7rem,3vw,2.4rem); font-weight: 900; letter-spacing: -.3px; margin: 0 0 8px; text-wrap: balance; }
-        .shots .ssub { font-size: 1rem; font-weight: 600; color: var(--soft); margin: 0 0 42px; }
-        .shots-outer { width: 100%; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
-        .shots-outer::-webkit-scrollbar { display: none; }
-        .shots-track { display: flex; gap: 14px; padding: 8px 40px 24px; width: max-content; margin: 0 auto; }
-        .shots-track img {
-            height: 360px; width: auto; border-radius: 8px; flex-shrink: 0;
-            box-shadow: 0 6px 22px rgba(0,0,0,.10);
-            transition: transform .3s ease, box-shadow .3s ease;
-        }
-        .shots-track img:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.16); }
-
         /* ─── CTA ───────────────────────────────── */
         .cta {
-            background: var(--navy); text-align: center; padding-block: 88px;
+            background: var(--navy); text-align: center; padding-block: 64px;
             padding-left: max(24px, env(safe-area-inset-left,0px));
             padding-right: max(24px, env(safe-area-inset-right,0px));
             position: relative; overflow: hidden;
@@ -256,14 +222,14 @@
         }
         .cta-in { position: relative; }
         .cta h2 { font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 900; color: #fff; margin: 0 0 12px; text-wrap: balance; }
-        .cta p  { font-size: 1.05rem; font-weight: 600; color: rgba(255,255,255,.62); max-width: 400px; margin: 0 auto 36px; }
+        .cta p  { font-size: 1.05rem; font-weight: 600; color: rgba(255,255,255,.62); max-width: 400px; margin: 0 auto 32px; }
 
         /* ─── FOOTER ────────────────────────────── */
         footer {
-            background: var(--bg); padding-block: 28px;
+            background: var(--bg); padding-block: 24px;
             padding-left: max(24px, env(safe-area-inset-left,0px));
             padding-right: max(24px, env(safe-area-inset-right,0px));
-            padding-bottom: max(28px, env(safe-area-inset-bottom,0px));
+            padding-bottom: max(24px, env(safe-area-inset-bottom,0px));
             display: flex; align-items: center; justify-content: center;
             gap: 6px; font-size: .85rem; font-weight: 600;
         }
@@ -275,13 +241,8 @@
         @media (max-width: 768px) { .feat-grid { grid-template-columns: 1fr 1fr; } }
         @media (max-width: 520px) {
             .feat-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .fc, .nap-fc { padding: 20px 16px; }
-            .app-card { height: 240px; }
-            .card-num { font-size: 58px; }
-            .card-title { font-size: 18px; }
-            .shots-track img { height: 240px; }
-            .mc { width: 60px; height: 86px; }
-            .mc-num { font-size: 21px; }
+            .fc, .nap-fc { padding: 18px 14px; }
+            .shots-track img { height: 220px; }
         }
         @media (prefers-reduced-motion: reduce) {
             .icon-wrap img, .orb { animation: none; }
@@ -309,21 +270,29 @@
         <a class="badge" href="https://play.google.com/store/apps/details?id=com.catscountdown.app" target="_blank" rel="noopener">
             <img src="GetItOnGooglePlay_Badge_Web_color_English.png" alt="Get it on Google Play">
         </a>
-    </div>
-
-    <!-- App hero card — faithful replica of the in-app hero card -->
-    <div class="card-wrap">
-        <div class="app-card">
-            <img class="card-steve" src="steve/steve_holiday.webp" alt="">
-            <div class="card-copy">
-                <div class="card-eyebrow">FRI 1 NOV 2026</div>
-                <div class="card-title">Summer Holiday</div>
-                <div class="card-bottom">
-                    <div class="card-num">38</div>
-                    <div class="card-unit">days to go</div>
-                    <div class="card-chip">🔔 Remind 1 day before</div>
+        <div class="stats" aria-label="App stats">
+            <div class="stat-chip">
+                <div class="stat-stars" aria-label="4.4 stars">
+                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star" style="opacity:.45">★</span>
                 </div>
+                <span class="stat-val">4.4</span>
+                <span class="stat-lbl">rating</span>
             </div>
+            <div class="stat-chip">
+                <span class="stat-icon">⬇️</span>
+                <span class="stat-val">7K+</span>
+                <span class="stat-lbl">downloads</span>
+            </div>
+        </div>
+    </div>
+    <!-- Screenshots immediately below the badge, still above the fold -->
+    <div class="shots-outer">
+        <div class="shots-track">
+            <img src="ss1.png" alt="Cats Countdown home screen">
+            <img src="ss2.png" alt="Customise your countdown">
+            <img src="ss3.png" alt="Home screen widget">
+            <img src="ss4.png" alt="Steve's Premium Treats">
+            <img src="ss5.png" alt="Never miss the big day — smart reminders">
         </div>
     </div>
 </section>
@@ -368,22 +337,6 @@
     </div>
 </section>
 
-<!-- ─── SCREENSHOTS ───────────────────────── -->
-<section class="shots">
-    <span class="eyebrow">See it in action</span>
-    <h2>Your countdowns, your way</h2>
-    <p class="ssub">Beautiful across every screen.</p>
-    <div class="shots-outer">
-        <div class="shots-track">
-            <img src="ss1.png" alt="Cats Countdown home screen">
-            <img src="ss2.png" alt="Customise your countdown">
-            <img src="ss3.png" alt="Home screen widget">
-            <img src="ss4.png" alt="Steve's Premium Treats">
-            <img src="ss5.png" alt="Never miss the big day — smart reminders">
-        </div>
-    </div>
-</section>
-
 <!-- ─── CTA ──────────────────────────────── -->
 <section class="cta">
     <div class="cta-in">
@@ -402,7 +355,6 @@
 </footer>
 
 <script>
-    // Staggered scroll-reveal for feature cards
     const allCards = document.querySelectorAll('.fc, .nap-fc');
     allCards.forEach((el, i) => { el.style.transitionDelay = `${i * 0.07}s`; });
     const obs = new IntersectionObserver(entries => {
