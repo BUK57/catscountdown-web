@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Cats Countdown: Days Counter</title>
-    <meta name="description" content="Count down to the good stuff. A cute cat countdown app &amp; widget to track your birthdays, vacations &amp; events on Android.">
+    <meta name="description" content="Count down to the good stuff. A cute cat countdown app &amp; widget to track your birthdays, vacations &amp; events. Free on iOS and Android.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://catscountdown.com/">
     <!-- Open Graph -->
@@ -25,7 +25,7 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Cats Countdown: Days Counter",
-      "operatingSystem": "Android",
+      "operatingSystem": "Android, iOS",
       "applicationCategory": "LifestyleApplication",
       "description": "Count down to the good stuff. A cute cat countdown app and widget to track your birthdays, vacations and events.",
       "url": "https://catscountdown.com",
@@ -120,6 +120,7 @@
             font-size: clamp(.95rem, 2vw, 1.15rem); font-weight: 600; color: var(--soft);
             margin: 0 0 24px; max-width: 400px; text-wrap: balance;
         }
+        .badges { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; justify-content: center; }
         .badge img { height: 52px; transition: transform .25s cubic-bezier(.34,1.56,.64,1); }
         .badge:hover img { transform: scale(1.07); }
         .badge:focus-visible { outline: 3px solid var(--navy); border-radius: 8px; }
@@ -267,9 +268,14 @@
         </div>
         <h1>Count down to<br>the good stuff</h1>
         <p class="tag">Trips, birthdays, paydays — all in one cosy place.</p>
-        <a class="badge" href="https://play.google.com/store/apps/details?id=com.catscountdown.app" target="_blank" rel="noopener">
-            <img src="GetItOnGooglePlay_Badge_Web_color_English.png" alt="Get it on Google Play">
-        </a>
+        <div class="badges">
+            <a class="badge" href="https://apps.apple.com/us/app/cats-countdown-day-counter/id6786012636" target="_blank" rel="noopener">
+                <img src="Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the App Store">
+            </a>
+            <a class="badge" href="https://play.google.com/store/apps/details?id=com.catscountdown.app" target="_blank" rel="noopener">
+                <img src="GetItOnGooglePlay_Badge_Web_color_English.png" alt="Get it on Google Play">
+            </a>
+        </div>
         <div class="stats" aria-label="App stats">
             <div class="stat-chip">
                 <div class="stat-stars" aria-label="4.4 stars">
@@ -341,10 +347,15 @@
 <section class="cta">
     <div class="cta-in">
         <h2>Start counting down today</h2>
-        <p>Free to download on Android. Every big moment deserves a countdown.</p>
-        <a class="badge" href="https://play.google.com/store/apps/details?id=com.catscountdown.app" target="_blank" rel="noopener">
-            <img src="GetItOnGooglePlay_Badge_Web_color_English.png" alt="Get it on Google Play" style="filter:brightness(1.08)">
-        </a>
+        <p>Free to download on iOS and Android. Every big moment deserves a countdown.</p>
+        <div class="badges">
+            <a class="badge" href="https://apps.apple.com/us/app/cats-countdown-day-counter/id6786012636" target="_blank" rel="noopener">
+                <img src="Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the App Store" style="filter:brightness(0) invert(1)">
+            </a>
+            <a class="badge" href="https://play.google.com/store/apps/details?id=com.catscountdown.app" target="_blank" rel="noopener">
+                <img src="GetItOnGooglePlay_Badge_Web_color_English.png" alt="Get it on Google Play" style="filter:brightness(1.08)">
+            </a>
+        </div>
     </div>
 </section>
 
